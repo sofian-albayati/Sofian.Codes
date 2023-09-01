@@ -1,0 +1,24 @@
+# Function to generate a 'welcome message' based on user input
+def generate_welcome_message(user_input):
+    user_input = user_input.lower()
+    
+    greetings = ["hello", "hi", "hey", "howdy"]
+    introductions = ["my name is", "i'm", "i am"]
+    
+    for greeting in greetings:
+        if greeting in user_input:
+            return "Hello! How can I assist you today?"
+    
+    for intro_phrase in introductions:
+        if intro_phrase in user_input:
+            name_start = user_input.index(intro_phrase) + len(intro_phrase)
+            name = user_input[name_start:].strip()
+            return f"Nice to meet you, {name}! How can I help you?"
+    
+    # Default response if no greeting or introduction is detected
+    return "Welcome! How can I assist you today?"
+
+# Example usage
+user_input = input("Enter your message: ")
+welcome_message = generate_welcome_message(user_input)
+print(welcome_message)
